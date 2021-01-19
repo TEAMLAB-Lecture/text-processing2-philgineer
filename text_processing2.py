@@ -77,7 +77,8 @@ def to_camel_case(underscore_str):
 
     if len(words) == 1:
         word = words[0]
-        word.replace(word[0], word[0].lower())
+        if len(word):
+            word.replace(word[0], word[0].lower())
         return word
         
     camelcase_str = ''
