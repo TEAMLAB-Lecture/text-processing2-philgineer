@@ -37,7 +37,7 @@ def digits_to_words(input_string):
             if input_string[i] == digit[j]:
                 arr.append(eng_digit[j])
                 break
-
+    
     return ' '.join(arr)
 
 
@@ -75,11 +75,14 @@ def to_camel_case(underscore_str):
     """
     words = list(underscore_str.replace('_', ' ').split())
 
+    if len(words) == 1:
+        return words[0]
+
     camelcase_str = ''
-    for i in range(len(words)):
-        words[i] = words[i].lower()
+    for i, word in enumerate(words):
+        word = word.lower()
         if i > 0:
-            words[i] = words[i].capitalize()
-        camelcase_str += words[i]
+            word = word.capitalize()
+        camelcase_str += word
         
     return camelcase_str
